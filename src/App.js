@@ -1,23 +1,55 @@
 import logo from './logo.svg';
 import './App.css';
 
+const fruits = [
+  { 
+    title: "Apple", 
+    price: 150, 
+    isAvailable: true 
+  },
+  { 
+    title: "Banana", 
+    price: 50, 
+    isAvailable: true 
+  },
+  { 
+    title: "Orange", 
+    price: 99, 
+    isAvailable: false 
+  },
+  { 
+    title: "Grapes", 
+    price: 200, 
+    isAvailable: true 
+  },
+  { 
+    title: "Mango", 
+    price: 299, 
+    isAvailable: false
+  }
+];
+
+const tableFruits = fruits.map(fruit => {
+  return (
+    <tr>
+      <td 
+       style={{
+        backgroundColor: fruit.isAvailable ? 'white' : 'red'
+      }}>{fruit.title}</td>
+      <td
+      style={{
+        backgroundColor: fruit.isAvailable ? 'white' : 'red'
+      }}>{fruit.price}</td>
+    </tr>)
+});
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table border="1px">
+          <th>Products</th><th>Price</th>
+          {tableFruits}
+       </table>
     </div>
   );
 }
